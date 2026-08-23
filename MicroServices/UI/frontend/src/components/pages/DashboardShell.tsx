@@ -164,9 +164,6 @@ export const DashboardShell: React.FC = () => {
             <h1 className="text-sm sm:text-base font-bold text-white tracking-tight">
               {getPageTitle()}
             </h1>
-            <span className="text-[9px] font-mono uppercase px-2 py-0.5 rounded-md bg-white/[0.06] border border-white/[0.10] text-sky-300 font-semibold">
-              {sidebarRailItems.find(i => i.id === activeTab)?.tag || 'Active'}
-            </span>
           </div>
         </div>
 
@@ -444,31 +441,34 @@ export const DashboardShell: React.FC = () => {
                 <button
                   key={idx}
                   onClick={() => setActiveTab(item.id)}
-                  className={`w-full flex-1 min-h-[42px] px-2 rounded-2xl flex items-center gap-3 transition-all duration-200 cursor-pointer relative overflow-hidden group/item ${
+                  className={`w-full flex-1 min-h-[40px] px-1.5 rounded-xl flex items-center gap-2.5 transition-all duration-200 cursor-pointer relative group/item ${
                     isActive
-                      ? 'bg-white/[0.16] border border-white/[0.28] text-white shadow-sm font-bold'
-                      : 'text-white/60 hover:text-white hover:bg-white/[0.08] hover:border hover:border-white/[0.14]'
+                      ? 'text-white font-bold'
+                      : 'text-white/50 hover:text-white hover:bg-white/[0.05]'
                   }`}
                   title={item.label}
                 >
-                  {/* Active Left Indicator Bar */}
-                  {isActive && (
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 rounded-r-full bg-sky-400 shadow-[0_0_10px_#38bdf8]" />
-                  )}
-
-                  {/* Icon Container with Hover Scale */}
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-105 ${
-                    isActive ? 'bg-white/[0.12] text-sky-300' : 'bg-transparent text-white/70 group-hover/item:text-white'
+                  {/* Single Clean Icon Container */}
+                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 group-hover/item:scale-105 ${
+                    isActive
+                      ? 'bg-sky-500/20 border border-sky-400/40 text-sky-300 shadow-[0_0_14px_rgba(56,189,248,0.3)]'
+                      : 'bg-transparent text-white/50 group-hover/item:text-white group-hover/item:bg-white/[0.06]'
                   }`}>
                     <Icon className="w-4 h-4" />
                   </div>
 
-                  {/* Expanding Dynamic Label with Tag */}
+                  {/* Expanding Dynamic Label with Tag (Visible on Hover) */}
                   <div className="opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 whitespace-nowrap overflow-hidden flex items-center justify-between flex-1 pr-1 text-left">
-                    <span className="text-xs font-semibold tracking-tight text-white/90 group-hover/item:text-white truncate">
+                    <span className={`text-xs tracking-tight truncate ${
+                      isActive ? 'font-bold text-white' : 'font-medium text-white/75 group-hover/item:text-white'
+                    }`}>
                       {item.label}
                     </span>
-                    <span className="text-[9px] font-mono uppercase px-2 py-0.5 rounded-md bg-white/[0.06] border border-white/[0.10] text-white/50 shrink-0 ml-2">
+                    <span className={`text-[9px] font-mono uppercase px-2 py-0.5 rounded-md shrink-0 ml-2 border ${
+                      isActive
+                        ? 'bg-sky-500/20 border-sky-400/30 text-sky-300 font-bold'
+                        : 'bg-white/[0.04] border-white/[0.08] text-white/40'
+                    }`}>
                       {item.tag}
                     </span>
                   </div>

@@ -18,7 +18,7 @@ export function Navbar() {
     >
       <div className="w-full px-6 sm:px-10 lg:px-14 py-3.5 sm:py-4 flex items-center justify-between">
         {/* Far Left Component: Brand Logo */}
-        <a href="#" className="flex items-center gap-3 group shrink-0" id="nav-logo">
+        <Link href="/" className="flex items-center gap-3 group shrink-0" id="nav-logo">
           <img src="/images/AgencyOS_Logo.png" alt="AgencyOS Logo" className="w-8 h-8 object-contain transition-transform group-hover:scale-105" />
           <span className="font-extrabold text-lg sm:text-xl tracking-tight font-display text-white">
             AgencyOS

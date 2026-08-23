@@ -1,12 +1,14 @@
 'use client'
 
+import Link from 'next/link'
+
 export function Footer() {
   return (
     <footer className="py-16 relative bg-transparent border-t border-white/10 font-body">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Brand in Solid White */}
-        <div className="flex items-center gap-3">
-          <img src="/images/AgencyOS_Logo.png" alt="AgencyOS Logo" className="w-8 h-8 object-contain" />
+        <Link href="/" className="flex items-center gap-3 group">
+          <img src="/images/AgencyOS_Logo.png" alt="AgencyOS Logo" className="w-8 h-8 object-contain transition-transform group-hover:scale-105" />
           <span className="font-bold text-xl tracking-tight font-display text-white">
             AgencyOS
           </span>
